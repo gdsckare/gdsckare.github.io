@@ -155,7 +155,8 @@ div.info .cookIcon img {
     margin-bottom: 1.5rem;
 }
 
-.aboutInventia .text button {
+.aboutInventia .text a {
+    text-decoration: none;
     font-family: "Inter";
     border-style: none;
     border-radius: .25rem;
@@ -167,7 +168,7 @@ div.info .cookIcon img {
     transition: all .3s ease;
 }   
 
-.aboutInventia .text button:hover {
+.aboutInventia .text a:hover {
     background-color: #104b98;
     
 }
@@ -467,6 +468,10 @@ div.info .cookIcon img {
     font-weight: 600;
     cursor: pointer;
     transition: all .3s ease;
+}
+
+.registerReminder a:hover {
+    background-color: #104b98;
 }
 
 
