@@ -1,0 +1,563 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: "Inter";
+    overflow-x: hidden;
+}
+
+nav {
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+nav .navWrapper {
+    max-width: 100%;
+    padding: 0 .5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .navWrapper ul {
+    list-style: none;
+    padding: 0 1rem;
+}
+
+ul li a {
+    text-decoration: none;
+    font-weight: 500;
+    color: rgba(0, 0, 0, .8);
+    background-color: rgba(0, 0, 0, 0.1);
+    border: .5px solid transparent;
+    padding: .25rem .5rem;
+    border-radius: 1rem;
+    font-size: .7rem;
+    transition: all .2s ease;
+}
+
+ul li a:hover {
+    color: rgba(0, 0, 0, 1);
+    background-color: rgba(0, 0, 0, 0.3);
+    border-color: rgba(0, 0, 0, .3);
+}
+
+.navWrapper .logo {
+    width: 40px;
+    height: 40px;
+}
+
+.navWrapper .logo img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+
+/* SECTION */
+
+div.info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #f1f1f1;
+    height: 100vh;
+}
+
+div.info .cookIcon {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    animation: hoverUpAndDown 7s infinite ease;
+}
+
+div.info .cookIcon img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.mainText {
+    text-align: center;
+    margin-top: .7rem;
+}
+
+.mainText .smallText {
+    font-size: 1rem;
+    font-weight: 800;
+    opacity: 0.8;
+    margin: 0;
+}
+
+.mainText .bigText {
+    font-size: 3rem;
+    font-weight: 900;
+    color: rgb(7, 7, 147);
+}
+
+.subText {
+    margin-top: 1.25rem;
+    font-size: .7rem;
+    font-weight: 600;
+    opacity: 0.8;
+}
+
+.color.orange {
+    color: rgb(218, 65, 0);
+}
+
+@keyframes hoverUpAndDown {
+    0% {
+        transform: translateY(0) rotate(0);
+    }
+    40% {
+        transform: translateY(-3px) rotate(-2deg);
+    }
+    100% {
+        transform: translateY(0) rotate(0);
+    }
+}
+
+/* COOKING SECTION END*/
+
+.bodyContent {
+    width: 100%;
+    margin-top: 4rem;
+}
+
+.bodyContent .aboutInventia {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+
+.aboutInventia .text {
+    padding: .5rem 0 .5rem 1rem;
+    flex: 1;
+}
+
+.aboutInventia .text .title {
+    font-weight: 800;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.aboutInventia .text .content {
+    margin-bottom: 1.5rem;
+}
+
+.aboutInventia .text button {
+    font-family: "Inter";
+    border-style: none;
+    border-radius: .25rem;
+    padding: .5rem .75rem;
+    background-color: #1765cc;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .3s ease;
+}   
+
+.aboutInventia .text button:hover {
+    background-color: #104b98;
+    
+}
+
+.aboutInventia .image {
+    padding: .5rem 1rem .5rem 0;
+    flex: 1;
+}
+
+.aboutInventia .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+/* ----------- */
+
+.timeline {
+    margin-top: 2.5rem;
+}
+
+.timeline .title {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.timeline .timelineSection.getStarted {
+    width: 100%;
+    padding: 0 1rem;
+}
+
+.timelineSection.getStarted .step {
+    margin-top: 2rem;
+}
+
+.timelineSection.getStarted .step .stepIcon {
+    border: 4px solid rgb(252, 67, 67);
+    border-radius: .5rem;
+    height: 50px;
+    width: 50px;
+    transform: rotate(45deg);
+}
+
+.timelineSection.getStarted .step .stepIcon .stepIconBox {
+    transform: rotate(-45deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.timelineSection.getStarted .step .stepIcon .stepIconText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    max-width: fit-content;
+    transform: translateX(-5px) translateY(5px);
+}
+
+.timelineSection.getStarted .step .stepIcon .stepIconBox .stepIconText .text {
+    font-size: .55rem;
+    letter-spacing: .15rem;
+}
+
+.timelineSection.getStarted .step .stepIcon .stepIconBox .stepIconText .number {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.stepText {
+    width: 90%;
+    margin-top: 1rem;
+}
+
+.stepText .stepTitle {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+/* -------------- */
+
+.evaluationTitle {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 2.5rem;
+}
+
+.evaluation {
+    display: flex;
+    gap: .5rem;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 2.5rem;
+}
+
+
+.evaluation .criteria {
+    flex: 1;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+}
+
+.evaluation .criteria .title {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.evaluation .criteria ul li {
+    margin-top: .75rem;
+}
+
+
+/* ---------------- */
+
+
+.benefits {
+    margin-top: 2.5rem;
+}
+
+.benefitsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
+    gap: 1rem;
+    padding: 1rem;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+
+.benefitsGrid .benefit {
+    display: flex;
+    gap: .5rem;
+    border-radius: .2rem;
+    background-color: #fefefe;
+    box-shadow: 0 1px 6px 1px rgba(0, 0, 0, .2);
+    transition: all .3s ease;
+    overflow: hidden;
+}
+
+.benefit .ribbon {
+    width: 10px;
+    border-radius: .3rem 0 0 .3rem;
+}
+
+.benefit:nth-child(1) .ribbon {
+    background-color: #e51f1c;
+}
+
+.benefit:nth-child(2) .ribbon {
+    background-color: #3dc727;
+}
+
+.benefit:nth-child(3) .ribbon {
+    background-color: #3c45e7;
+}
+
+.benefit:nth-child(4) .ribbon {
+    background-color: #f0522e;
+}
+
+.benefit:nth-child(5) .ribbon {
+    background-color: #13a397;
+}
+
+.benefit:nth-child(6) .ribbon {
+    background-color: #1a0d5e;
+}
+
+
+.benefit .text {
+    padding: 1.25rem 1rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+/* ---------------- */
+
+.un17Goals {
+    margin-top: 2.5rem;
+}
+
+.un17Goals .goalsIntro {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.goalsIntro .text, .goalsIntro .image {
+    flex: 1;
+    padding: 1rem;
+}
+
+.goalsIntro .content {
+    padding: 1rem;
+}
+
+.goalsIntro .content .title {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.goalsIntro .content .text {
+    margin-top: 1rem;
+    padding: 0;
+}
+
+.goalsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
+    gap: 1rem;
+    margin-top: 2rem;
+    padding: 1rem;
+}
+
+.goalsGrid .goal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    padding: 2rem 1rem;
+    border-radius: .5rem;
+    background-color: #f1f1f1;
+    box-shadow: 0 0 3px 1px rgba(0, 0, 0, .3);
+    transition: all .3s ease;
+}
+
+.goalsGrid .goal .goalIcon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f1f1f1;
+}
+
+.goalsGrid .goal .goalIcon img {
+    width: 50%;
+    height: 50%;
+    object-fit: contain;
+}
+
+
+.goalsGrid .goal .goalText .goalTitle {
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: .5rem;
+}
+
+.goalsGrid .goal .goalText .goalDescription {
+    text-align: center;
+    opacity: 0.9;
+    margin: 0 auto;
+}
+
+.registerReminder {
+    margin: 4.5rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    gap: 1rem;
+}
+
+.registerReminder .title {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.registerReminder .text {
+    max-width: 60%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.registerReminder a {
+    font-family: "Inter";
+    text-decoration: none;
+    border-style: none;
+    border-radius: .25rem;
+    padding: .5rem .75rem;
+    background-color: #1765cc;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+
+footer {
+    background-color: #f1f1f1;
+    padding: 2.5rem 1rem;
+    text-align: center;
+}
+
+footer .text {
+    font-weight: 600;
+    opacity: 0.8;
+}
+
+footer .links {
+    max-width: max-content;
+    margin: 0 auto;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+footer .links a {
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1rem;
+    opacity: 0.8;
+    padding: .2rem .75rem;
+    border-radius: .5rem;
+    border: 1px solid rgba(0, 0, 0, .4);
+    background-color: rgba(0, 0, 0, 0.2);
+    color: black;
+}
+
+footer .links a:hover {
+    background-color: rgba(79, 85, 204, 0.4);
+    border-color: rgba(72, 99, 216, 0.6);
+}
+
+@media screen and (max-width: 900px) {
+    .aboutInventia {
+        flex-direction: column-reverse;
+    }
+
+
+    .timelineSection.getStarted .step .stepIcon .stepIconText .text {
+        font-size: .5rem;
+    }
+
+    .timelineSection.getStarted .step .stepIcon .stepIconText .number {
+        font-size: 1rem;
+    }
+
+    .evaluation .criteria {
+        padding: .5rem;
+    }
+
+    .evaluation .criteria .title {
+        font-size: 1.2rem;
+    }
+
+    .benefitsGrid {
+        width: 100%;
+    }
+
+    .goalsIntro {
+        flex-direction: column;
+    }
+
+    .goalsGrid .goal .goalIcon {
+        width: 80px;
+        height: 80px;
+    }
+
+    .goalsGrid .goal .goalText .goalTitle {
+        font-size: 1rem;
+    }
+
+    .goalsGrid .goal .goalText .goalDescription {
+        font-size: .7rem;
+    }
+
+    .registerReminder .text {
+        max-width: 85%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .evaluation {
+        flex-direction: column;
+    }
+}
