@@ -5,6 +5,7 @@ body {
     margin: 0;
     font-family: "Inter";
     overflow-x: hidden;
+    background-color: rgb(240, 240, 240);
 }
 
 label {
@@ -80,6 +81,11 @@ ul li a:hover {
 }
 
 
+h1 {
+    margin-top: 5rem;
+    text-align: center;
+}
+
 .registerBodyContent form {
     margin-top: 4rem;
     display: flex;
@@ -97,7 +103,7 @@ ul li a:hover {
 }
 
 .tech_container {
-    padding-left: .5rem;
+    padding-right: 4rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;

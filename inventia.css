@@ -565,4 +565,8 @@ footer .links a:hover {
     .evaluation {
         flex-direction: column;
     }
+
+    .un17Image {
+        width: 100%
+    }
 }

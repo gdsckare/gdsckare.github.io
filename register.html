@@ -29,6 +29,8 @@
 
     <div class="registerBodyContent">
 
+        <h1>Inventia '24 Registration</h1>
+
         <form class="registerForm">
 
             <div class="labelAndInput">
@@ -317,8 +319,6 @@
 
         </form>
 
-        <button onclick="sample(event)">Sample Push</button>
-
         <footer>
             <div class="text">Created and maintained by GDSC KARE.</div>
             <div class="links">
@@ -350,25 +350,24 @@
     const db = getDatabase(app);
 
 
-    function sample(e) {
-        push(ref(db, 'users/' + "sabz"), {
-            username: 'xx',
-            email: 'email',
-            profile_picture : 'imageUrl'
-        })
-        .then(() => {
-            alert("success");
-        })
-        .catch((err) => {
-            alert("failed.");
-        })
-    }
-    window.sample = sample;
-
     function register(e) {
         e.preventDefault();
         let form = document.querySelector("form");
         form.reportValidity();
+
+        let requiredFields = document.querySelectorAll('input[required]');
+        for (var i = 0; i < requiredFields.length; i++) {
+            if (requiredFields[i].value === "") {
+                alert("Please fill all the required fields.");
+                console.log(requiredFields[i])
+                return;
+            }
+        }
+
+        // if (!form.reportValidity()) {
+        //     console.log(form.reportValidity())
+        //     return;
+        // }
         
         let sdgCheckboxes = document.querySelectorAll('.sdgGoalsContainer input[type="checkbox"]');
         let atleaseOneChecked = false;
@@ -381,7 +380,7 @@
         };
 
         if (!atleaseOneChecked) {
-            alert("Atlaest one SDG goal check.");
+            alert("Your solution must achieve atleast one Sustainable Development Goal.");
             return;
         }
 
@@ -396,7 +395,7 @@
         };
 
         if (!atleaseOneTechChecked) {
-            alert("Atlaese one tech check.");
+            alert("Your solution must use one or more of the technologies mentioned.");
             return;
         }
 
@@ -448,7 +447,17 @@
 
         if (teamSize.value === '2') {
             document.querySelector(`.teamMember2Details`).style.display = "none";
+            let allMember2Details = document.querySelectorAll(`.teamMember2Details input`)
+            for (var i = 0; i < allMember2Details.length; i++) {
+                allMember2Details[i].removeAttribute("required");
+            }
+            
             document.querySelector(`.teamMember3Details`).style.display = "none";
+            document.querySelector(`.teamMember3Details`).style.display = "none";
+            let allMember3Details = document.querySelectorAll(`.teamMember3Details input`)
+            for (var i = 0; i < allMember3Details.length; i++) {
+                allMember3Details[i].removeAttribute("required");
+            }
             document.querySelector(`.splitter1`).style.display = "block";
             document.querySelector(`.splitter2`).style.display = "none";
             document.querySelector(`.splitter3`).style.display = "none";
@@ -456,7 +465,15 @@
         }
         if (teamSize.value === '3') {
             document.querySelector(`.teamMember2Details`).style.display = "block";
+            let allMember2Details = document.querySelectorAll(`.teamMember2Details input`)
+            for (var i = 0; i < allMember2Details.length; i++) {
+                allMember2Details[i].setAttribute("required");
+            }
             document.querySelector(`.teamMember3Details`).style.display = "none";
+            let allMember3Details = document.querySelectorAll(`.teamMember3Details input`)
+            for (var i = 0; i < allMember3Details.length; i++) {
+                allMember3Details[i].removeAttribute("required");
+            }
             document.querySelector(`.splitter1`).style.display = "block";
             document.querySelector(`.splitter2`).style.display = "block";
             document.querySelector(`.splitter3`).style.display = "block";
@@ -465,6 +482,17 @@
         if (teamSize.value === '4') {
             document.querySelector(`.teamMember2Details`).style.display = "block";
             document.querySelector(`.teamMember3Details`).style.display = "block";
+
+            let allMember2Details = document.querySelectorAll(`.teamMember2Details input`)
+            for (var i = 0; i < allMember2Details.length; i++) {
+                allMember2Details[i].setAttribute("required");
+            }
+            document.querySelector(`.teamMember3Details`).style.display = "none";
+            let allMember3Details = document.querySelectorAll(`.teamMember3Details input`)
+            for (var i = 0; i < allMember3Details.length; i++) {
+                allMember3Details[i].setAttribute("required");
+            }
+
             document.querySelector(`.splitter1`).style.display = "block";
             document.querySelector(`.splitter2`).style.display = "block";
             document.querySelector(`.splitter3`).style.display = "block";
