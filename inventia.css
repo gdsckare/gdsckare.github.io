@@ -207,7 +207,8 @@ div.info .cookIcon img {
 }
 
 .timelineSection.getStarted .step .stepIcon {
-    border: 4px solid rgb(252, 67, 67);
+    margin-left: .75rem;
+    border: 2px solid rgb(252, 67, 67);
     border-radius: .5rem;
     height: 50px;
     width: 50px;
@@ -234,6 +235,7 @@ div.info .cookIcon img {
 .timelineSection.getStarted .step .stepIcon .stepIconBox .stepIconText .text {
     font-size: .55rem;
     letter-spacing: .15rem;
+    font-weight: bold;
 }
 
 .timelineSection.getStarted .step .stepIcon .stepIconBox .stepIconText .number {
@@ -277,6 +279,7 @@ div.info .cookIcon img {
     justify-content: center;
     align-items: center;
     gap: .5rem;
+    width: 100%;
 }
 
 .evaluation .criteria .title {
@@ -389,11 +392,15 @@ div.info .cookIcon img {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
     gap: 1rem;
+    row-gap: 5rem;
+    justify-content: center;
+    align-items: center;
     margin-top: 2rem;
     padding: 1rem;
 }
 
 .goalsGrid .goal {
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -434,6 +441,31 @@ div.info .cookIcon img {
     text-align: center;
     opacity: 0.9;
     margin: 0 auto;
+}
+
+.goalProjects  {
+    margin-top: 1rem;
+}
+
+.goalProjects .title {
+    font-size: .9rem;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: .5rem;
+}
+
+.goalProjects .noProjects {
+    font-size: .8rem;
+}
+
+.goalProjects .project {
+    font-size: .8rem;
+    text-align: center;
+    margin-top: .25rem;
+}
+
+.goalProjects .project a {
+    text-decoration: none;
 }
 
 .registerReminder {
@@ -537,6 +569,9 @@ footer .links a:hover {
         flex-direction: column-reverse;
     }
 
+    .timelineSection.getStarted .step .stepIcon {
+        margin-left: .75rem;
+    }
 
     .timelineSection.getStarted .step .stepIcon .stepIconText .text {
         font-size: .5rem;
@@ -572,7 +607,7 @@ footer .links a:hover {
     }
 
     .goalsGrid .goal .goalText .goalDescription {
-        font-size: .7rem;
+        font-size: .85rem;
     }
 
     .registerReminder .text {
