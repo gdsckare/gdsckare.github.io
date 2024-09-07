@@ -311,6 +311,10 @@
                         <input type="checkbox" name="scikit_learn" id="scikit_learn">
                         <label for="quality_education">Scikit-Learn</label>
                     </div>
+                    <div id="others-checkbox-div">
+                        <input type="checkbox" name="Other" id="Other" onchange="onOthersClick()">
+                        <label for="Other">Other</label>
+                    </div>
                 </div>
             </div>
             
@@ -331,6 +335,50 @@
 
 </body>
 
+<script>
+    
+    function onOthersClick() {
+        checkboxDiv = document.getElementById('others-checkbox-div');
+
+        if (checkboxDiv.children.length === 2) {
+            let input = document.createElement('input');
+            input.type = 'text';
+            input.placeholder = 'Other technologies';
+            input.id = 'others-input';
+            
+            let addButton = document.createElement('button');
+            addButton.innerHTML = 'Add';
+            addButton.className = 'add-button';
+
+            addButton.onclick = addNewTech;
+
+            let entryBoxDiv = document.createElement('div');
+            entryBoxDiv.id = 'others-entry-box';
+
+            entryBoxDiv.appendChild(input);
+            entryBoxDiv.appendChild(addButton);
+
+            checkboxDiv.appendChild(entryBoxDiv);
+        } else {
+            checkboxDiv.removeChild(checkboxDiv.children[2]);
+        }
+    }
+
+    function addNewTech() {
+        let otherTechName = document.getElementById('others-input').value;
+    
+        let techContainerDiv = document.querySelector('.tech_container');
+        let newTechEle = document.createElement('div');
+        newTechEle.innerHTML = `
+            <input type="checkbox" name="${otherTechName}" id="${otherTechName}" checked>
+            <label for="no_poverty">${otherTechName}</label>
+        `
+        document.getElementById('others-input').value = '';
+        techContainerDiv.appendChild(newTechEle);
+    }
+
+</script>
+
 <script type="module" defer>
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
     import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js"
@@ -348,8 +396,12 @@
     const app = initializeApp(firebaseConfig);
     const db = getDatabase(app);
 
-
     function register(e) {
+        
+        if (document.getElementById('Other').checked) {
+            document.getElementById('Other').click();
+        }
+
         e.preventDefault();
         let form = document.querySelector("form");
         form.reportValidity();
