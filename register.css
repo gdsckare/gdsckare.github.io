@@ -173,9 +173,21 @@ input[type="submit"] {
     transition: all .3s ease;
 }
 
-input[tyoe="submit"]:hover {
+input[type="submit"]:hover {
     background-color: #104b98;
-    
+}
+
+.add-button{
+    text-decoration: none;
+    max-width: max-content;
+    font-family: "Inter";
+    border-style: none;
+    border-radius: .25rem;
+    padding: .5rem 1rem;
+    margin: .5rem .5rem;
+    background-color: #1765cc;
+    color: white;
+    cursor: pointer;
 }
 
 footer {
@@ -217,8 +229,34 @@ footer .links a:hover {
     border-color: rgba(72, 99, 216, 0.6);
 }
 
+.popup {
+    background-color: rgba(0, 0, 0, .3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: all .3s ease-in-out;
+    opacity: 0;
+    z-index: -1;
+}
+
+.popup.open {
+    opacity: 1;
+    z-index: 99;
+}
+
+.popup-content {
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+    padding: 2rem 2rem;
+    text-align: center;
+}
+
 @media screen and (max-width: 600px) {
-    
+    body {
+        width: 100%;
+    }
     .textareaContainer {
         width: 90%;
         display: flex;
