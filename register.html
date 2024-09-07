@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,15 +8,26 @@
     <link rel="icon" type="image/x-icon" href="/assets/favicon-32x32.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="register.css">
-    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init({
+                publicKey: "ZBwXg4cwShdqUvSfH",
+            });
+        })();
+    </script>
 </head>
+
 <body>
     <nav>
         <div class="navWrapper">
             <div class="logo">
-            <img src="./assets/gdsckare.jpeg" alt="">
+                <img src="./assets/gdsckare.jpeg" alt="">
             </div>
             <div class="nav-links">
                 <ul>
@@ -23,9 +35,9 @@
                 </ul>
             </div>
         </div>
-       
+
         </div>
-        
+
     </nav>
 
     <div class="registerBodyContent">
@@ -38,10 +50,10 @@
                 <label for="team_name">Team Name</label>
                 <input required type="text" id="team_name">
             </div>
-            
+
             <div class="labelAndInput">
                 <label for="team_size">Team Size</label>
-                <select id="team_size" onchange="teamSizeChanged()" >
+                <select id="team_size" onchange="teamSizeChanged()">
                     <option value="4" selected>4</option>
                 </select>
             </div>
@@ -115,7 +127,7 @@
             </div>
 
             <div class="splitter splitter3"></div>
-            
+
 
             <div class="teamMember3Details">
                 <div class="labelAndInput">
@@ -145,7 +157,7 @@
                 <label for="solution_title">Enter your solution's title/name</label>
                 <input required type="text" id="solution_title">
             </div>
-            
+
             <div class="labelAndInput">
                 <label for="solution_description">Enter your solution's description (max 200 words)</label>
                 <div class="textareaContainer">
@@ -178,31 +190,38 @@
                     </div>
                     <div>
                         <input type="checkbox" name="6_clean_water_and_sanitation" id="6_clean_water_and_sanitation">
-                        <label for="clean_water_and_sanitation">SDG 6 - Clean Water and Sanitation</label>
+                        <label for="6_clean_water_and_sanitation">SDG 6 - Clean Water and Sanitation</label>
                     </div>
                     <div>
-                        <input type="checkbox" name="affordable_and_clearn_energy" id="affordable_and_clearn_energy">
-                        <label for="quality_education">SDG 7 - Affordable and Clean Energy</label>
+                        <input type="checkbox" name="affordable_and_clean_energy" id="affordable_and_clean_energy">
+                        <label for="affordable_and_clean_energy">SDG 7 - Affordable and Clean Energy</label>
                     </div>
                     <div>
-                        <input type="checkbox" name="8_decent_work_and_econimic_growth" id="8_decent_work_and_econimic_growth">
+                        <input type="checkbox" name="8_decent_work_and_econimic_growth"
+                            id="8_decent_work_and_econimic_growth">
                         <label for="8_decent_work_and_econimic_growth">SDG 8 - Decent Work and Economic Growth</label>
                     </div>
                     <div>
-                        <input type="checkbox" name="9_industy_innovation_infrastructure" id="9_industy_innovation_infrastructure">
-                        <label for="9_industy_innovation_infrastructure">SDG 9 - Industy, Innovation and Infrastructure</label>
+                        <input type="checkbox" name="9_industy_innovation_infrastructure"
+                            id="9_industy_innovation_infrastructure">
+                        <label for="9_industy_innovation_infrastructure">SDG 9 - Industy, Innovation and
+                            Infrastructure</label>
                     </div>
                     <div>
                         <input type="checkbox" name="10_reduced_inequality" id="10_reduced_inequality">
                         <label for="10_reduced_inequality">SDG 10 - Reduced Inequality</label>
                     </div>
                     <div>
-                        <input type="checkbox" name="11_sustainable_cities_and_communities" id="11_sustainable_cities_and_communities">
-                        <label for="11_sustainable_cities_and_communities">SDG 11 - Sustainable Cities and Communities</label>
+                        <input type="checkbox" name="11_sustainable_cities_and_communities"
+                            id="11_sustainable_cities_and_communities">
+                        <label for="11_sustainable_cities_and_communities">SDG 11 - Sustainable Cities and
+                            Communities</label>
                     </div>
                     <div>
-                        <input type="checkbox" name="12_responsible_consumption_and_production" id="12_responsible_consumption_and_production">
-                        <label for="12_responsible_consumption_and_production">SDG 12 - Responsible Consumption and Production</label>
+                        <input type="checkbox" name="12_responsible_consumption_and_production"
+                            id="12_responsible_consumption_and_production">
+                        <label for="12_responsible_consumption_and_production">SDG 12 - Responsible Consumption and
+                            Production</label>
                     </div>
                     <div>
                         <input type="checkbox" name="13_climate_action" id="13_climate_action">
@@ -232,84 +251,71 @@
                 <div class="tech_container">
                     <div>
                         <input type="checkbox" name="gcp" id="gcp">
-                        <label for="no_poverty">Google Cloud Platform</label>
+                        <label for="gcp">Google Cloud Platform</label>
                     </div>
                     <div>
                         <input type="checkbox" name="google_maps_platform" id="google_maps_platform">
-                        <label for="zero_hunger">Google Maps Platform</label>
+                        <label for="google_maps_platform">Google Maps Platform</label>
                     </div>
                     <div>
-                        <input type="checkbox" name="cloud_vision" id="cloud_vision">
-                        <label for="good_health">Google Cloud Vision API</label>
+                        <input type="checkbox" name="android" id="android">
+                        <label for="android">Android</label>
                     </div>
                     <div>
-                        <input type="checkbox" name="natural_language_api" id="natural_language_api">
-                        <label for="quality_education">Google Cloud Natural Language API</label>
+                        <input type="checkbox" name="angular" id="angular">
+                        <label for="angular">Angular</label>
                     </div>
                     <div>
-                        <input type="checkbox" name="tensorflow" id="tensorflow">
-                        <label for="quality_education">Tensorflow</label>
+                        <input type="checkbox" name="ar_vr" id="ar_vr">
+                        <label for="ar_vr">AR/VR</label>
                     </div>
                     <div>
-                        <input type="checkbox" name="docs_slides_sheets" id="docs_slides_sheets">
-                        <label for="quality_education">Google Docs, Sheets, Slides</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" name="forms" id="forms">
-                        <label for="quality_education">Google Forms</label>
+                        <input type="checkbox" name="earth_engine" id="earth_engine">
+                        <label for="earth_engine">Earth Engine</label>
                     </div>
                     <div>
                         <input type="checkbox" name="firebase" id="firebase">
-                        <label for="quality_education">Google Firebase</label>
+                        <label for="firebase">Google Firebase</label>
                     </div>
                     <div>
                         <input type="checkbox" name="web_toolkit" id="web_toolkit">
-                        <label for="quality_education">Web Toolkit</label>
+                        <label for="web_toolkit">Web Toolkit</label>
                     </div>
                     <div>
                         <input type="checkbox" name="flutter" id="flutter">
-                        <label for="quality_education">Flutter</label>
+                        <label for="flutter">Flutter</label>
                     </div>
                     <div>
-                        <input type="checkbox" name="assistant_dialogflow" id="assistant_dialogflow">
-                        <label for="quality_education">Assistant / Google Dialogflow</label>
-
+                        <input type="checkbox" name="google_assistant" id="google_assistant">
+                        <label for="google_assistant">Google Assistant</label>
                     </div>
                     <div>
-                        <input type="checkbox" name="kubernetes" id="kubernetes">
-                        <label for="quality_education">Kubernetes Engine</label>
+                        <input type="checkbox" name="google_analytics" id="google_analytics">
+                        <label for="google_analytics">Google Analytics</label>
                     </div>
                     <div>
-                        <input type="checkbox" name="react_angular" id="react_angular">
-                        <label for="quality_education">React / Angular</label>
+                        <input type="checkbox" name="google_play" id="google_play">
+                        <label for="google_play">Google Play</label>
                     </div>
                     <div>
-                        <input type="checkbox" name="next_gatsby" id="next_gatsby">
-                        <label for="quality_education">Next.js / Gatsby.js</label>
+                        <input type="checkbox" name="google_pay" id="google_pay">
+                        <label for="google_pay">Google pay</label>
                     </div>
                     <div>
-                        <input type="checkbox" name="bootstrap" id="bootstrap">
-                        <label for="quality_education">Bootstrap</label>
+                        <input type="checkbox" name="google_wallet" id="google_wallet">
+                        <label for="google_wallet">Google Wallet</label>
                     </div>
                     <div>
-                        <input type="checkbox" name="nodejs" id="nodejs">
-                        <label for="quality_education">Node.js</label>
+                        <input type="checkbox" name="google_workspace" id="google_workspace">
+                        <label for="google_workspace">Google Workspace</label>
                     </div>
                     <div>
-                        <input type="checkbox" name="python" id="python">
-                        <label for="quality_education">Python</label>
+                        <input type="checkbox" name="machine_learning" id="machine_learning">
+                        <label for="machine_learning">Machine Learning</label>
                     </div>
                     <div>
-                        <input type="checkbox" name="javascript" id="javascript">
-                        <label for="quality_education">Javascript</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" name="html_css" id="html_css">
-                        <label for="quality_education">HTML/CSS</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" name="scikit_learn" id="scikit_learn">
-                        <label for="quality_education">Scikit-Learn</label>
+                        <input type="checkbox" name="progressive_web_apps" id="progressive_web_apps">
+                        <label for="progressive_web_apps">Web / Progressive Web Apps</label>
                     </div>
                     <div id="others-checkbox-div">
                         <input type="checkbox" name="Other" id="Other" onchange="onOthersClick()">
@@ -317,11 +323,20 @@
                     </div>
                 </div>
             </div>
-            
+
             <input type="submit" value="Register" onclick="register(event)">
 
         </form>
-
+        <div id="success-popup" class="popup">
+            <div class="popup-content">
+                <h2>Registration Successful</h2>
+                <p>
+                    You are successfully registered for Inventia'24. More information will be shared to your Whatsapp
+                    number and email.
+                </p>
+                <button onclick="closePopup()">Close</button>
+            </div>
+        </div>
         <footer>
             <div class="text">Created and maintained by GDSC KARE.</div>
             <div class="links">
@@ -336,7 +351,7 @@
 </body>
 
 <script>
-    
+
     function onOthersClick() {
         checkboxDiv = document.getElementById('others-checkbox-div');
 
@@ -345,9 +360,10 @@
             input.type = 'text';
             input.placeholder = 'Other technologies';
             input.id = 'others-input';
-            
-            let addButton = document.createElement('button');
-            addButton.innerHTML = 'Add';
+
+            let addButton = document.createElement('input');
+            addButton.type = 'button'
+            addButton.value = 'Add';
             addButton.className = 'add-button';
 
             addButton.onclick = addNewTech;
@@ -366,17 +382,56 @@
 
     function addNewTech() {
         let otherTechName = document.getElementById('others-input').value;
-    
+
+        let techCheckBoxes = document.querySelectorAll('.tech_container input[type="checkbox"]');
+
+        let duplicateName = false;
+
+        techCheckBoxes.forEach(checkbox => {
+            console.log(checkbox.name)
+            console.log(otherTechName)
+            if (checkbox.name == otherTechName) {
+                duplicateName = true;
+                return;
+            }
+        });
+
+        if (otherTechName === '' || duplicateName) {
+            return;
+        }
+
         let techContainerDiv = document.querySelector('.tech_container');
         let newTechEle = document.createElement('div');
         newTechEle.innerHTML = `
             <input type="checkbox" name="${otherTechName}" id="${otherTechName}" checked>
-            <label for="no_poverty">${otherTechName}</label>
+            <label for="${otherTechName}">${otherTechName}</label>
         `
         document.getElementById('others-input').value = '';
         techContainerDiv.appendChild(newTechEle);
     }
 
+    function closePopup() {
+        let successPopup = document.getElementById('success-popup');
+        successPopup.classList.remove('open');
+        window.location.replace("https://gdsckare.github.io/inventia.html");
+    }
+
+    function replaceUnderscores(obj) {
+        if (typeof obj === 'string') {
+            return obj.replace(/_/g, ' ');
+        } else if (Array.isArray(obj)) {
+            return obj.map(item => replaceUnderscores(item));
+        } else if (typeof obj === 'object' && obj !== null) {
+            const newObj = {};
+            for (const key in obj) {
+                if (obj.hasOwnProperty(key)) {
+                    newObj[key] = replaceUnderscores(obj[key]);
+                }
+            }
+            return newObj;
+        }
+        return obj;
+    }
 </script>
 
 <script type="module" defer>
@@ -384,20 +439,19 @@
     import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js"
 
     const firebaseConfig = {
-    apiKey: "AIzaSyC9-X-0RCNBxXzCGtXpjmD8Z1EBbzfiMjs",
-    authDomain: "gdsc-kare.firebaseapp.com",
-    databaseURL: "https://gdsc-kare-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "gdsc-kare",
-    storageBucket: "gdsc-kare.appspot.com",
-    messagingSenderId: "690496105686",
-    appId: "1:690496105686:web:60eed1291c7efd9df86d77"
+        apiKey: "AIzaSyC9-X-0RCNBxXzCGtXpjmD8Z1EBbzfiMjxxxxxs",
+        authDomain: "gdsc-kare.firebaseapp.com",
+        databaseURL: "https://gdsc-kare-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "gdsc-kare",
+        storageBucket: "gdsc-kare.appspot.com",
+        messagingSenderId: "690496105686",
+        appId: "1:690496105686:web:60eed1291c7efd9df86d77"
     };
 
     const app = initializeApp(firebaseConfig);
     const db = getDatabase(app);
 
     function register(e) {
-        
         if (document.getElementById('Other').checked) {
             document.getElementById('Other').click();
         }
@@ -410,7 +464,6 @@
         for (var i = 0; i < requiredFields.length; i++) {
             if (requiredFields[i].value === "") {
                 alert("Please fill all the required fields.");
-                console.log(requiredFields[i])
                 return;
             }
         }
@@ -419,10 +472,10 @@
         //     console.log(form.reportValidity())
         //     return;
         // }
-        
+
         let sdgCheckboxes = document.querySelectorAll('.sdgGoalsContainer input[type="checkbox"]');
         let atleaseOneChecked = false;
-        let solvedSDGs= []
+        let solvedSDGs = []
         for (var i = 0; i < sdgCheckboxes.length; i++) {
             if (sdgCheckboxes[i].checked) {
                 atleaseOneChecked = true;
@@ -482,13 +535,30 @@
         push(ref(db, 'inventia_registrations'), {
             ...details
         })
-        .then(() => {
-            alert("You are successfully registered for Inventia'24. More information will be shared to the team leader's Whatsapp number and email.");
-            form.reset();
-        })
-        .catch((err) => {
-            alert("Error in registering. Please try again later.");
-        })
+            .then(() => {
+                let successPopup = document.getElementById('success-popup');
+                successPopup.classList.add('open');
+
+                form.reset();
+
+                const updatedData = replaceUnderscores(details);
+                console.log(updatedData)
+
+                const serviceID = 'service_h9erwq3'
+                const templateID = 'template_v0fhogn'
+
+                emailjs.send(serviceID, templateID, updatedData)
+                    .then((res) => {
+                        console.log("Email sent successfully!")
+                    })
+                    .catch((err) => {
+                        console.log("Error in sending email")
+                    })
+            })
+
+            .catch((err) => {
+                alert("Error in registering. Please try again later.");
+            })
     }
     window.register = register;
 
@@ -502,7 +572,7 @@
             for (var i = 0; i < allMember2Details.length; i++) {
                 allMember2Details[i].removeAttribute("required");
             }
-            
+
             document.querySelector(`.teamMember3Details`).style.display = "none";
             document.querySelector(`.teamMember3Details`).style.display = "none";
             let allMember3Details = document.querySelectorAll(`.teamMember3Details input`)

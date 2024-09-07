@@ -229,6 +229,30 @@ footer .links a:hover {
     border-color: rgba(72, 99, 216, 0.6);
 }
 
+.popup {
+    background-color: rgba(0, 0, 0, .3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: all .3s ease-in-out;
+    opacity: 0;
+    z-index: -1;
+}
+
+.popup.open {
+    opacity: 1;
+    z-index: 99;
+}
+
+.popup-content {
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+    padding: 2rem 2rem;
+    text-align: center;
+}
+
 @media screen and (max-width: 600px) {
     
     .textareaContainer {
