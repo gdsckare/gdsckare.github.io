@@ -254,7 +254,9 @@ footer .links a:hover {
 }
 
 @media screen and (max-width: 600px) {
-    
+    body {
+        width: 100%;
+    }
     .textareaContainer {
         width: 90%;
         display: flex;
