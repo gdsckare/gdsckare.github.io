@@ -433,12 +433,12 @@
 
 <script type="module" defer>
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-    import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js"
+    import { getDatabase, ref, push, get } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js"
 
     const firebaseConfig = {
-        apiKey: "AIzaSyC9-X-0RCNBxXzCGtXpjmD8Z1EBbzfiMjsxxx",
+        apiKey: "AIzaSyC9-X-0RCNBxXzCGtXpjmD8Z1EBbzfiMjs",
         authDomain: "gdsc-kare.firebaseapp.com",
-        databaseURL: "https://gdsc-kare-default-rtdb.asia-southeast1.firebasedatabase.appxxx",
+        databaseURL: "https://gdsc-kare-default-rtdb.asia-southeast1.firebasedatabase.app",
         projectId: "gdsc-kare",
         storageBucket: "gdsc-kare.appspot.com",
         messagingSenderId: "690496105686",
@@ -447,6 +447,29 @@
 
     const app = initializeApp(firebaseConfig);
     const db = getDatabase(app);
+
+    async function fetchDataFromFirebase(path) {
+        const dbRef = ref(db, path);
+
+        try {
+            const snapshot = await get(dbRef);
+            if (snapshot.exists()) {
+                return snapshot.val();
+            } else {
+                throw new Error('No data available at the specified path.');
+            }
+        } catch (error) {
+            console.error('Error fetching data:', error);
+            throw error;
+        }
+    }
+
+    fetchDataFromFirebase('/inventia_registrations').then(data => {
+        console.log('Data:', data);
+    }).catch(error => {
+        console.error('Error:', error);
+    });
+
 
     function register(e) {
         if (document.getElementById('Other').checked) {
