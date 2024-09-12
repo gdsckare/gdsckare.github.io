@@ -192,6 +192,11 @@ input[type="submit"]:hover {
     cursor: pointer;
 }
 
+.problem-contact {
+    text-align: center;
+    padding-top: 2rem;
+}
+
 footer {
     margin-top: 4rem;
     background-color: #f1f1f1;

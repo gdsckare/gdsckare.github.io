@@ -161,7 +161,7 @@
             <div class="labelAndInput">
                 <label for="solution_description">Enter your solution's description (max 1500 characters)</label>
                 <div class="textareaContainer">
-                    <textarea required id="solution_description" maxlength="1500"></textarea>
+                    <textarea required id="solution_description" minlength="100" maxlength="1500"></textarea>
                 </div>
             </div>
 
@@ -329,6 +329,11 @@
                 <button onclick="closePopup()">Close</button>
             </div>
         </div>
+
+        <div class="problem-contact">
+            <span>If you face any problems with registering, please email us at <a href="mailto:gdsckare@klu.ac.in">gdsckare@klu.ac.in</a> or contact <b>9443634173</b></span>
+        </div>
+
         <footer>
             <div class="text">Created and maintained by GDSC KARE.</div>
             <div class="links">
@@ -428,7 +433,7 @@
 
 <script type="module" defer>
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-    import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js"
+    import { getDatabase, ref, push, get } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js"
 
     const firebaseConfig = {
         apiKey: "AIzaSyC9-X-0RCNBxXzCGtXpjmD8Z1EBbzfiMjs",
@@ -443,6 +448,66 @@
     const app = initializeApp(firebaseConfig);
     const db = getDatabase(app);
 
+    async function fetchDataFromFirebase(path) {
+        const dbRef = ref(db, path);
+
+        try {
+            const snapshot = await get(dbRef);
+            if (snapshot.exists()) {
+                return snapshot.val();
+            } else {
+                throw new Error('No data available at the specified path.');
+            }
+        } catch (error) {
+            console.error('Error fetching data:', error);
+            throw error;
+        }
+    }
+
+    function extractRegNumbers(jsonData) {
+        let regNumbers = new Set();
+        
+        for (let data in jsonData) {
+
+            if (jsonData[data]) {
+                
+                jsonData[data].teamMembers.forEach(member => {
+                    if (member.reg) {
+                        regNumbers.add(member.reg);
+                    }
+                });
+            }
+            if (jsonData[data].team_leader_reg) {
+                regNumbers.add(jsonData[data].team_leader_reg);
+            }
+        };
+        console.log(regNumbers)
+        return regNumbers;
+    }
+
+    function checkForDuplicates(currentDetails, data) {
+        let allRegNumbers = new Set();
+        let hasDuplicates = false;
+        let duplicateNum = null;
+
+        allRegNumbers = extractRegNumbers(data);
+        console.log(allRegNumbers)
+
+        currentDetails.teamMembers.forEach(mem => {
+            if (allRegNumbers.has(mem.reg)) {
+                hasDuplicates = true;
+                duplicateNum = mem.reg;
+            }
+        });
+        
+        if (allRegNumbers.has(currentDetails.team_leader_reg)) {
+            hasDuplicates = true;
+            duplicateNum = currentDetails.team_leader_reg;
+        }
+
+        return [hasDuplicates, duplicateNum];
+    }
+
     function register(e) {
         if (document.getElementById('Other').checked) {
             document.getElementById('Other').click();
@@ -450,7 +515,11 @@
 
         e.preventDefault();
         let form = document.querySelector("form");
-        form.reportValidity();
+        
+        let isValid = form.reportValidity();
+        if (!isValid) {
+            return;
+        }
 
         let requiredFields = document.querySelectorAll('input[required]');
         for (var i = 0; i < requiredFields.length; i++) {
@@ -522,7 +591,20 @@
         }
 
         console.log("Registering");
-        console.log(details);
+
+        let dbData = {}
+
+        fetchDataFromFirebase('/inventia_registrations').then(data => {
+            dbData = data
+            
+        let isDupNum = checkForDuplicates(details, dbData);
+        let isDuplicate = isDupNum[0];
+        let duplicateNum = isDupNum[1];
+
+        if (isDuplicate) {
+            alert(`${duplicateNum} is already registered in a team. If you think this is a mistake, please find our contact at the bottom of the registration page`);
+            return;
+        }
 
         push(ref(db, 'inventia_registrations'), {
             ...details
@@ -551,6 +633,9 @@
             .catch((err) => {
                 alert("Error in registering. Please try again later.");
             })
+        }).catch(error => {
+            console.error('Error:', error);
+        });
     }
     window.register = register;
 
