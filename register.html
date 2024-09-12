@@ -17,7 +17,7 @@
     <script type="text/javascript">
         (function () {
             emailjs.init({
-                publicKey: "ZBwXg4cwShdqUvSfH",
+                publicKey: "ZBwXg4cwShdqUvSfHxxx",
             });
         })();
     </script>
@@ -161,7 +161,7 @@
             <div class="labelAndInput">
                 <label for="solution_description">Enter your solution's description (max 1500 characters)</label>
                 <div class="textareaContainer">
-                    <textarea required id="solution_description" maxlength="1500"></textarea>
+                    <textarea required id="solution_description" minlength="100" maxlength="1500"></textarea>
                 </div>
             </div>
 
@@ -431,9 +431,9 @@
     import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js"
 
     const firebaseConfig = {
-        apiKey: "AIzaSyC9-X-0RCNBxXzCGtXpjmD8Z1EBbzfiMjs",
+        apiKey: "AIzaSyC9-X-0RCNBxXzCGtXpjmD8Z1EBbzfiMjsxxx",
         authDomain: "gdsc-kare.firebaseapp.com",
-        databaseURL: "https://gdsc-kare-default-rtdb.asia-southeast1.firebasedatabase.app",
+        databaseURL: "https://gdsc-kare-default-rtdb.asia-southeast1.firebasedatabase.appxxx",
         projectId: "gdsc-kare",
         storageBucket: "gdsc-kare.appspot.com",
         messagingSenderId: "690496105686",
@@ -450,7 +450,11 @@
 
         e.preventDefault();
         let form = document.querySelector("form");
-        form.reportValidity();
+        
+        let isValid = form.reportValidity();
+        if (!isValid) {
+            return;
+        }
 
         let requiredFields = document.querySelectorAll('input[required]');
         for (var i = 0; i < requiredFields.length; i++) {
