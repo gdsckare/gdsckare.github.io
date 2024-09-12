@@ -17,7 +17,7 @@
     <script type="text/javascript">
         (function () {
             emailjs.init({
-                publicKey: "ZBwXg4cwShdqUvSfHxxx",
+                publicKey: "ZBwXg4cwShdqUvSfH",
             });
         })();
     </script>
@@ -464,12 +464,49 @@
         }
     }
 
-    fetchDataFromFirebase('/inventia_registrations').then(data => {
-        console.log('Data:', data);
-    }).catch(error => {
-        console.error('Error:', error);
-    });
+    function extractRegNumbers(jsonData) {
+        let regNumbers = new Set();
+        
+        for (let data in jsonData) {
 
+            if (jsonData[data]) {
+                
+                jsonData[data].teamMembers.forEach(member => {
+                    if (member.reg) {
+                        regNumbers.add(member.reg);
+                    }
+                });
+            }
+            if (jsonData[data].team_leader_reg) {
+                regNumbers.add(jsonData[data].team_leader_reg);
+            }
+        };
+        console.log(regNumbers)
+        return regNumbers;
+    }
+
+    function checkForDuplicates(currentDetails, data) {
+        let allRegNumbers = new Set();
+        let hasDuplicates = false;
+        let duplicateNum = null;
+
+        allRegNumbers = extractRegNumbers(data);
+        console.log(allRegNumbers)
+
+        currentDetails.teamMembers.forEach(mem => {
+            if (allRegNumbers.has(mem.reg)) {
+                hasDuplicates = true;
+                duplicateNum = mem.reg;
+            }
+        });
+        
+        if (allRegNumbers.has(currentDetails.team_leader_reg)) {
+            hasDuplicates = true;
+            duplicateNum = currentDetails.team_leader_reg;
+        }
+
+        return [hasDuplicates, duplicateNum];
+    }
 
     function register(e) {
         if (document.getElementById('Other').checked) {
@@ -554,7 +591,20 @@
         }
 
         console.log("Registering");
-        console.log(details);
+
+        let dbData = {}
+
+        fetchDataFromFirebase('/inventia_registrations').then(data => {
+            dbData = data
+            
+        let isDupNum = checkForDuplicates(details, dbData);
+        let isDuplicate = isDupNum[0];
+        let duplicateNum = isDupNum[1];
+
+        if (isDuplicate) {
+            alert(`${duplicateNum} is already registered in a team. If you think this is a mistake, please find our contact at the bottom of the registration page`);
+            return;
+        }
 
         push(ref(db, 'inventia_registrations'), {
             ...details
@@ -583,6 +633,9 @@
             .catch((err) => {
                 alert("Error in registering. Please try again later.");
             })
+        }).catch(error => {
+            console.error('Error:', error);
+        });
     }
     window.register = register;
 
