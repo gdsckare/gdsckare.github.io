@@ -10,30 +10,64 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="inventia.css">
     
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'google-blue': '#4285F4',
+            'google-red': '#DB4437',
+            'google-yellow': '#F4B400',
+            'google-green': '#0F9D58'
+          },
+          fontFamily: {
+            'product-sans': ['Product Sans', 'sans-serif']
+          }
+        }
+      }
+    }
+    </script>
+
+    <style>
+      * {
+        transition: all 0.2s ease-in-out;
+      }
+      
+      .card-hover:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+      }
+    </style>
 </head>
-<body>
-    <nav>
-        <div class="navWrapper">
-            <div class="logo">
-            <img src="./assets/gdsckare.jpeg" alt="">
-            </div>
-            <div class="nav-links">
-                <ul>
-                    <li><a href="https://linktr.ee/gdsc_kare" target="_blank">linktree</a></li>
-                </ul>
+<body class="bg-gray-50 font-product-sans">
+    <nav class="bg-white shadow-sm fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <img src="./assets/gdsckare.jpeg" alt="GDSC KARE" class="h-12 w-auto">
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="https://linktr.ee/gdsc_kare" 
+                       class="text-gray-700 hover:text-google-blue px-3 py-2 rounded-md text-sm font-medium 
+                              transition-colors duration-200"
+                       target="_blank">
+                        <i class="material-icons align-middle">link</i>
+                        Linktree
+                    </a>
+                </div>
             </div>
         </div>
-       
-        </div>
-        
     </nav>
 
-    <div class="bodyContent">
-
-        <div class="aboutInventia">
-            <div class="text">
-                <div class="title">About Inventia '24</div>
-                <div class="content">
+    <div class="pt-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="bg-white rounded-xl shadow-sm p-8 mb-12 grid md:grid-cols-2 gap-8">
+            <div class="space-y-6">
+                <h2 class="text-3xl font-bold text-gray-900">About Inventia '24</h2>
+                <div class="space-y-4 text-gray-600">
                     <p>
                         Inventia is a coding event organised by the <b>Google Developer Groups, On-Campus - KARE (GDSC)</b> as a part of the <b>Vintra</b> intramural events
                     </p>
@@ -46,165 +80,37 @@
                         The event includes a series of workshops featuring hands-on sessions led by expert members in specific domains, aimed at helping participants gain knowledge relevant to their projects. The final day's evaluation will be conducted by <b>Senthil Kumar, CEO of Jiovio Healthcare and GDG Organizer</b>, during Vintra.
                     </p>
                     
-                    <div>
-                        <span><u><b>Registrations are closed</b></u></span>
+                    <div class="inline-flex items-center px-4 py-2 bg-google-blue text-white rounded-lg">
+                        <span class="material-icons mr-2">info</span>
+                        <span><b>Registrations are closed</b></span>
                     </div>
                 </div>
-
             </div>
-            <div class="image">
-                <img src="https://developers.google.com/static/community/images/gdsc-solution-challenge/homepage-hero.webp" alt="Inventia Poster Image">
+            <div class="relative">
+                <img src="https://developers.google.com/static/community/images/gdsc-solution-challenge/homepage-hero.webp" 
+                     alt="Inventia Poster Image"
+                     class="rounded-lg shadow-lg object-cover w-full h-full">
             </div>
         </div>
 
-        <div class="timeline">
-            <div class="title">EVENT TIMELINE</div>
-            <div class="timelineSection getStarted">
-                <!-- <div class="step">
-                    <div class="stepIcon">
-                        <div class="stepIconBox">
-                            <span class="stepIconText">
-                                <span class="text">Step</span>
-                                <span class="number">1</span>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="stepText">
-                        <div class="stepTitle">Form a team and register</div>
-                        <div class="stepContent">Form a team of maximum 4 members. Have a conversation early about causes you care about most to identify a problem to potentially solve. Then, register for Inventia by completing this <a href="">registration form</a></div>
-                    </div>
-                </div> -->
+        <div class="bg-white rounded-xl shadow-sm p-8 mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8">Event Timeline</h2>
+            <div class="space-y-8">
+                <!-- Timeline steps will be injected here by JS -->
+            </div>
+        </div>
+
+        <!-- SDG Goals Section -->
+        <div class="bg-white rounded-xl shadow-sm p-8 mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8">UN Sustainable Development Goals</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 goalsGrid">
+                <!-- Cards will be injected here by JavaScript -->
             </div>
         </div>
     </div>
-
-    <div class="evaluationTitle">
-        EVALUATION CRITERIA
-    </div>
-
-    <div class="evaluation">
-        <div class="criteria">
-            <div class="title">Impact (25 points)</div>
-            <div class="content">
-                <ul> <li>Does the entry establish a clear challenge using their problem statement? (5 points)</li> <li>Do they explain clearly which UN Sustainable Development goals and targets they chose for their solution and why? (5 points)</li> <li>Feedback from users, testing &amp; iteration (5 points)</li>
-                    <ul>
-                      <li>Does the team clearly describe three feedback points they received from real users and the steps they took to test them?</li>
-                      <li>Is there evidence of what the team learned and how the solution was iterated upon based on user feedback?</li>
-                    </ul>
-                 <li>Does the solution address the challenge (and problem statement) identified by the team? Does the team adequately describe the success of their solution using metrics, goals, and outcomes? (5 points)</li> <li>Is there evidence of next steps? Does the team display a clear plan for future extension to a larger audience if they were to continue? (5 points)</li> </ul>
-            </div>
-        </div>
-
-        <div class="criteria">
-            <div class="title">Technology (25 points)</div>
-            <div class="content">
-                <ul>
-                    <li>Does the team clearly describe the following: architecture, high-level components, responsibility of each component, specific products and platform they implemented? Has the team clearly explained what Google technology they used and why? (5 points)</li>
-                    <li>Does the solution implement all the technical components needed to solve the challenge? (5 points)</li>
-                    <li>Code testing and iteration (5 points)</li>
-                      <ul>
-                        <li>Does the team highlight one challenge they faced while building their code, how they addressed the issue, and the technical decisions and implementations they had to make? Did the team include guidance on running their code?</li>
-                      </ul>
-                    <li>Does the video demonstration show an actual working application (not a mockup) and how a user will interact with the solution? Does the demo show how the solution makes effective and appropriate use of the features of the chosen Google technology or platform? (5 points)</li>
-                    <li>Can the solution, in its current form or minor structural changes, support more users and increased scale? (5 points)</li>
-                  </ul>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="evaluationTitle">BENEFITS</div>
-
-    <div class="benefits">
-
-        <div class="benefitsGrid">
-            <div class="benefit">
-                <div class="ribbon"></div>
-                <div class="text">Cash prizes, swags, and certificates</div>
-            </div>
-            <div class="benefit">
-                <div class="ribbon"></div>
-                <div class="text">Top 10 teams can claim Experiential Elective</div>
-            </div>
-            <div class="benefit">
-                <div class="ribbon"></div>
-                <div class="text">Learn from Certified Google Experts</div>
-            </div>
-            <div class="benefit">
-                <div class="ribbon"></div>
-                <div class="text">Connect with students and professionals</div>
-            </div>
-            <div class="benefit">
-                <div class="ribbon"></div>
-                <div class="text">Online and Offline Webinars</div>
-            </div>
-            <div class="benefit">
-                <div class="ribbon"></div>
-                <div class="text">Certification of Participation and Achievement</div>
-            </div>
-        </div>
-
-    </div>
-
-
-    <div class="evaluationTitle">
-        UN 17 GOALS
-    </div>
-
-    <div class="un17Goals">
-        <div class="goalsIntro">
-            <div class="content">
-                <div class="title">The 17 Sustainable Development Goals of the United Nations</div>
-                <div class="text">
-                    In 2015, the United Nations created 17 Sustainable Development Goals and aimed to achieve them by 2030. All 193 United Nations Member States agreed on these 17 goals to end poverty, ensure prosperity, and protect the planet.
-                    <br><br>
-
-                    <strong>For Inventia, your mission is to create a project that contributes to solving one or more of the 17 Sustainable Development Goals using Google technologies.</strong>
-                </div>
-            </div>
-            <div class="image">
-                <img class="un17Image" src="https://developers.google.com/static/community/images/gdsc-solution-challenge/un-goals.webp" alt="UN17 Goals Infographic">
-            </div>
-        </div>
-
-        <div class="goalsGrid">
-            <!-- js injected -->
-        </div>
-
-        <!-- <div class="registerReminder">
-            <div class="title">Ready to get started?</div>
-            <div class="text">Form a team, select a UN Sustainable Development Goal, and start building your project using Google technologies. Register for Inventia now!</div>
-            <a href="register.html">Register now</a>
-        </div> -->
-
-        <div class="center-div">
-            <!-- <div class="note">
-                Note that registrations happen in a <b>first come first serve basis and only 50 teams are allowed</b>
-            </div> -->
-
-            <div class="inline-image-text">
-                <img src="https://cdn-icons-png.freepik.com/256/15707/15707917.png?semt=ais_hybrid" class="inline-image">
-                <span>Join our <a href="https://chat.whatsapp.com/GKUYKNSQQUC3ayRZvbPHkp" target="_blank">WhatsApp group</a> and <a href="https://gdg.community.dev/gdg-on-campus-kalasalingam-academy-of-research-education-krishnankoil-india/" target="_blank">Event Platform</a> for updates</span>
-                <img src="assets/gdsckare.jpeg" class="inline-image">
-            </div>
-
-        </div>
-
-        <footer>
-
-            <div class="text">Created and maintained by GDSC KARE.</div>
-            <div class="links">
-                <a target="_blank" href="https://in.linkedin.com/company/gdsc-kare">linkedin</a>
-                <a target="_blank" href="https://www.instagram.com/gdsc_kare/">instagram</a>
-                <a target="_blank" href="https://linktr.ee/gdsc_kare">linktree</a>
-            </div>
-
-        </footer>
-
 </body>
-
-<script defer>
-
+<!-- 
+<script>
     let steps = [
         { title: 'Form a team and register', content: 'Form a team of maximum 4 members. Have a conversation early about causes you care about most to identify a problem to potentially solve. Then, register for Inventia by completing this <a href="register.html">registration form</a>' },
         { title: 'Select a UN Sustainable Development Goal', content: 'Select a goal that aligns with personal interests and/or needs in your community that you would like to solve with technology. Watch <a target="_blank" href="https://www.youtube.com/watch?v=eJo-22lvPRI">this video</a> to learn more.' },
@@ -216,334 +122,80 @@
         { title: 'Keep the prototype ready and attend the event', content: "Keep your prototype ready and attend the event. You will be given a chance to present your project to the judges and other participants." }
     ]
 
-    let timelineSection = document.querySelector('.timelineSection.getStarted');
-
+    let timelineSection = document.querySelector('.timelineSection');
+    
     steps.forEach((step, index) => {
-        let stepElement = document.createElement('div');
-        stepElement.classList.add('step');
-
-        let stepIcon = document.createElement('div');
-        stepIcon.classList.add('stepIcon');
-        stepIcon.style.filter = "hue-rotate(" + (index * 40) + "deg)";
-
-        let stepIconBox = document.createElement('div');
-        stepIconBox.classList.add('stepIconBox');
-
-        let stepIconText = document.createElement('span');
-        stepIconText.classList.add('stepIconText');
-
-        let stepIconTextText = document.createElement('span');
-        stepIconTextText.classList.add('text');
-        stepIconTextText.innerText = 'Step';
-
-        let stepIconTextNumber = document.createElement('span');
-        stepIconTextNumber.classList.add('number');
-        stepIconTextNumber.innerText = index + 1;
-
-        stepIconText.appendChild(stepIconTextText);
-        stepIconText.appendChild(stepIconTextNumber);
-        stepIconBox.appendChild(stepIconText);
-        stepIcon.appendChild(stepIconBox);
-
-        let stepText = document.createElement('div');
-        stepText.classList.add('stepText');
-
-        let stepTitle = document.createElement('div');
-        stepTitle.classList.add('stepTitle');
-        stepTitle.innerText = step.title;
-
-        let stepContent = document.createElement('div');
-        stepContent.classList.add('stepContent');
-        stepContent.innerHTML = step.content;
-
-        stepText.appendChild(stepTitle);
-        stepText.appendChild(stepContent);
-
-        stepElement.appendChild(stepIcon);
-        stepElement.appendChild(stepText);
-
-        timelineSection.appendChild(stepElement);
-
+        let stepElement = `
+            <div class="flex items-start space-x-4 card-hover p-4 rounded-lg">
+                <div class="flex-shrink-0 bg-google-${['blue', 'red', 'yellow', 'green'][index % 4]} rounded-full p-3">
+                    <span class="text-white material-icons">looks_${index + 1}</span>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-900">${step.title}</h3>
+                    <p class="mt-2 text-gray-600">${step.content}</p>
+                </div>
+            </div>
+        `;
+        timelineSection.innerHTML += stepElement;
     });
 
-        
-    let goals = [
-        {
-            title: 'No Poverty',
-            description: 'End poverty in all its forms everywhere.',
-            icon: 'https://developers.google.com/static/community/images/gdsc-solution-challenge/goal01-nopoverty.webp',
-            projects: [
-                {
-                    title: 'Donation Match',
-                    link: 'https://www.donationmatch.com/'
-                },
-                {
-                    title: 'OKO Finance',
-                    link: 'https://www.oko.finance/'
-                }
-            ]
-        },
-        {
-            title: 'Zero Hunger',
-            description: 'End hunger, achieve food security and improved nutrition and promote sustainable agriculture.',
-            icon: 'https://developers.google.com/static/community/images/gdsc-solution-challenge/goal02-zerohunger.webp',
-            projects: [
-                {
-                    title: 'IndigoDrones',
-                    link: 'https://indigodrones.com/'
-                },
-                {
-                    title: 'SkillLab',
-                    link: 'https://skilllab.io/en-us'
-                }
-            ]
-        },
-        {
-            title: 'Good Health and Well-being',
-            description: 'Ensure healthy lives and promote well-being for all at all ages.',
-            icon: 'https://developers.google.com/static/community/images/gdsc-solution-challenge/goal03-goodhealth.webp',
-            projects: [
-                {
-                    title: 'Kindara',
-                    link: 'https://www.kindara.com/'
-                },
-                {
-                    title: 'WonderTree',
-                    link: 'https://wondertree.co'
-                }
-            ]
-        },
-        {
-            title: 'Quality Education',
-            description: 'Ensure inclusive and equitable quality education and promote lifelong learning opportunities for all.',
-            icon: 'https://developers.google.com/static/community/images/gdsc-solution-challenge/goal04-qualityedu.webp',
-            projects: [
-                {
-                    title: 'Donation Match',
-                    link: 'https://www.donationmatch.com/'
-                },
-                {
-                    title: 'Femunity',
-                    link: 'https://www.youtube.com/watch?v=1H82iFD0pHM'
-                }
-            ]
-        },
-        {
-            title: 'Gender Equality',
-            description: 'Achieve gender equality and empower all women and girls',
-            icon: 'https://developers.google.com/static/community/images/gdsc-solution-challenge/goal05-genderequality.webp',
-            projects: [
-                {
-                    title: 'SkillLab',
-                    link: 'https://skilllab.io/en-us'
-                },
-                {
-                    title: 'Kindara',
-                    link: 'https://www.kindara.com/'
-                }
-            ]
-        },
-        {
-            title: 'Clean Water and Sanitation',
-            description: 'Ensure availability and sustainable management of water and sanitation for all.',
-            icon: 'https://developers.google.com/static/community/images/gdsc-solution-challenge/goal06-cleanwater.webp',
-            projects: [
-                {
-                    title: 'Flow',
-                    link: 'https://www.youtube.com/watch?v=3Km_tquLuc0&list=PLOU2XLYxmsIK3Mq1itovZMQkKEkBYamG0&index=10'
-                },
-                {
-                    title: 'Remora',
-                    link: 'https://youtu.be/QS6e_ifG0cY'
-                }
-            ]
-        },
-        {
-            title: 'Affordable and Clean Energy',
-            description: 'Ensure access to affordable, reliable, sustainable and modern energy for all.',
-            icon: 'https://developers.google.com/static/community/images/gdsc-solution-challenge/goal07-cleanenergy.webp',
-        },
-        {
-            title: 'Decent Work and Economic Growth',
-            description: 'Promote sustained, inclusive and sustainable economic growth, full and productive employment and decent work for all.',
-            icon: 'https://developers.google.com/static/community/images/gdsc-solution-challenge/goal08-decentwork.webp',
-            projects: [
-                {
-                    'title': 'SkillLab',
-                    'link': 'https://skilllab.io/en-us'
-                },
-                {
-                    'title': 'DonationMatch',
-                    'link': 'https://www.donationmatch.com/'
-                }
-            ]
-        },
-        {
-            title: 'Industry, Innovation, and Infrastructure',
-            description: 'Build resilient infrastructure, promote inclusive and sustainable industrialization and foster innovation.',
-            icon: 'https://developers.google.com/static/community/images/gdsc-solution-challenge/goal09-industry.webp',
-            projects: [
-                {
-                    'title': 'ReVita',
-                    'link': 'https://youtu.be/4BKX3NsUYUs'
-                },
-                {
-                    'title': 'DonationMatch',
-                    'link': 'https://www.donationmatch.com/'
-                }
-            ]
-        },
-        {
-            title: 'Reduced Inequality',
-            description: 'Reduce inequality within and among countries.',
-            icon: 'https://developers.google.com/static/community/images/gdsc-solution-challenge/goal10-reduceinequalities.webp',
-            projects: [
-                {
-                    'title': 'Wonder Reader',
-                    'link': 'https://www.youtube.com/watch?v=JViAbPYdxp4'
-                },
-                {
-                    'title': 'HearSitter',
-                    'link': 'https://www.youtube.com/watch?v=pZBiAt61sQo'
-                }
-            ]
-        },
-        {
-            title: 'Sustainable Cities and Communities',
-            description: 'Make cities and human settlements inclusive, safe, resilient and sustainable.',
-            icon: 'https://developers.google.com/static/community/images/gdsc-solution-challenge/goal11-cities.webp',
-            projects: [
-                {
-                    'title': 'OKO Finance',
-                    'link': 'https://www.oko.finance/'
-                },
-                {
-                    'title': 'HeadHome',
-                    'link': 'https://youtu.be/peDNWLrffIQ'
-                }
-            ]
-        },
-        {
-            title: 'Responsible Consumption and Production',
-            description: 'Ensure sustainable consumption and production patterns.',
-            icon: 'https://developers.google.com/static/community/images/gdsc-solution-challenge/goal12-consumption.webp',
-            projects: [
-                {
-                    'title': 'DeCarbonUs',
-                    'link': 'https://decarbonapp.com/'
-                },
-                {
-                    'title': 'FarmX',
-                    'link': 'https://youtu.be/jZAhNR95f-M'
-                }
-            ]
-        },
-        {
-            title: 'Climate Action',
-            description: 'Take urgent action to combat climate change and its impacts.',
-            icon: 'https://developers.google.com/static/community/images/gdsc-solution-challenge/goal13-climate.webp',
-            projects: [
-                {
-                    'title': 'FarmX',
-                    'link': 'https://youtu.be/jZAhNR95f-M'
-                },
-                {
-                    'title': 'SlugLoop',
-                    'link': 'https://youtu.be/DlAGp-IjtJM'
-                }
-            ]
-        },
-        {
-            title: 'Life Below Water',
-            description: 'Conserve and sustainably use the oceans, seas and marine resources for sustainable development.',
-            icon: 'https://developers.google.com/static/community/images/gdsc-solution-challenge/goal14-marinelife.webp'
-        },
-        {
-            title: 'Life on Land',
-            description: 'Protect, restore and promote sustainable use of terrestrial ecosystems, sustainably manage forests, combat desertification, and halt and reverse land degradation and halt biodiversity loss.',
-            icon: 'https://developers.google.com/static/community/images/gdsc-solution-challenge/goal15-landlife.webp'
-        },
-        {
-            title: 'Peace, Justice, and Strong Institutions',
-            description: 'Promote peaceful and inclusive societies for sustainable development, provide access to justice for all and build effective, accountable and inclusive institutions at all levels.',
-            icon: 'https://developers.google.com/static/community/images/gdsc-solution-challenge/goal16-peace.webp'
-        },
-        {
-            title: 'Partnerships for the Goals',
-            description: 'Strengthen the means of implementation and revitalize the Global Partnership for Sustainable Development.',
-            icon: 'https://developers.google.com/static/community/images/gdsc-solution-challenge/goal17-partnerships.webp',
-            projects: [
-                {
-                    'title': 'SkillLab',
-                    'link': 'https://skilllab.io/en-us'
-                },
-                {
-                    'title': 'DonationMatch',
-                    'link': 'https://www.donationmatch.com/'
-                }
-            ]
-        }
-    ];
+    
 
     let goalsGrid = document.querySelector('.goalsGrid');
 
-    goals.map((goal, index) => {
-        let goalElement = document.createElement('div');
-        goalElement.classList.add('goal');
+    goals.forEach(goal => {
+        const goalElement = document.createElement('div');
+        goalElement.classList.add('card-hover', 'p-6', 'rounded-xl', 'bg-white', 'border', 'border-gray-100', 'shadow-sm');
 
-        let goalIcon = document.createElement('div');
-        goalIcon.classList.add('goalIcon');
+        const goalIcon = document.createElement('div');
+        goalIcon.classList.add('flex', 'items-center', 'space-x-4', 'mb-4');
 
-        let goalIconImage = document.createElement('img');
+        const goalIconImage = document.createElement('img');
         goalIconImage.src = goal.icon;
-        goalIconImage.alt = goal.title + ' Icon';
+        goalIconImage.alt = `${goal.title} Icon`;
+        goalIconImage.classList.add('w-12', 'h-12', 'rounded-full');
 
         goalIcon.appendChild(goalIconImage);
 
-        let goalText = document.createElement('div');
-        goalText.classList.add('goalText');
+        const goalText = document.createElement('div');
+        goalText.classList.add('flex-grow');
 
-        let goalTitle = document.createElement('div');
-        goalTitle.classList.add('goalTitle');
+        const goalTitle = document.createElement('h3');
+        goalTitle.classList.add('text-xl', 'font-bold', 'text-gray-900');
         goalTitle.innerText = goal.title;
 
-        console.log(`${index}`)
-
-        let goalDescription = document.createElement('div');
-        goalDescription.classList.add('goalDescription');
+        const goalDescription = document.createElement('p');
+        goalDescription.classList.add('text-gray-600', 'mt-2');
         goalDescription.innerText = goal.description;
 
-        let goalProjects = document.createElement('div');
-        goalProjects.classList.add('goalProjects');
-        goalProjects.innerHTML = "<div class='title'>PROJECTS</div>";
+        const goalProjects = document.createElement('div');
+        goalProjects.classList.add('mt-4', 'flex', 'flex-col', 'gap-2');
 
         if (goal.projects) {
-            console.log(`${goal.title} has ${goal.projects.length} projects`);
-
-            goal.projects.map((goal, index) => {
-                let project = document.createElement('div');
-                project.classList.add('project');
-                project.innerHTML = `<a href="${goal.link}">${goal.title}</a>`;
-                goalProjects.appendChild(project);
-            })
-            
+            goal.projects.forEach(project => {
+                const projectLink = document.createElement('a');
+                projectLink.href = project.link;
+                projectLink.classList.add('text-google-blue', 'hover:underline');
+                projectLink.innerText = project.title;
+                goalProjects.appendChild(projectLink);
+            });
+        } else {
+            const noProjects = document.createElement('div');
+            noProjects.classList.add('text-gray-500');
+            noProjects.innerText = 'No projects listed.';
+            goalProjects.appendChild(noProjects);
         }
-        else {
-            goalProjects.innerHTML += "<div class='noProjects'>No projects listed.</div>";
-        }
-
-        goalProjects.classList.add('goalProjects');
 
         goalText.appendChild(goalTitle);
         goalText.appendChild(goalDescription);
+        goalText.appendChild(goalProjects);
 
         goalElement.appendChild(goalIcon);
         goalElement.appendChild(goalText);
-        goalElement.appendChild(goalProjects)
 
         goalsGrid.appendChild(goalElement);
     });
 
-</script>
-
+</script> -->
+<script src="inventia.js"></script>
 </html>
